@@ -6,7 +6,7 @@ TARGET_PATH = Path(__file__).parent.parent.absolute() / Path('syllables.txt')
 
 
 def _add_from_testfile(file_name, syllable_count, complete_dict):
-    with open(str(DATA_PATH / Path(file_name))) as test_file:
+    with open(str(DATA_PATH / Path(file_name)), encoding='utf-8') as test_file:
         for word in test_file.readlines():
             word = word.replace("\n", "")
             if not word in complete_dict:
@@ -28,10 +28,11 @@ def _load_data():
 
 def _load_dict():
     result = {}
-    with open(str(DATA_PATH / Path('syllables.txt'))) as syllable_file:
-        for word in syllable_file.readlines():
-            entry = word.split('=')
-            result[entry[0]] = len(entry[1].split('·'))
+    with open(str(DATA_PATH / Path('syllables.txt')), encoding='utf-8') as syllable_file:
+        for entry in syllable_file.readlines():
+            word, syllables = entry.split('=')
+            if not word in result:
+                result[word] = syllables.count('·') + 1
     return result
 
 
