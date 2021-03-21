@@ -22,7 +22,10 @@ ALL_WORDS = _load_dict()
 
 
 def _backup_method(word):
-    return len(SYLLABLES_PATTERN.findall(word))
+    syllable_count = len(SYLLABLES_PATTERN.findall(word))
+    if syllable_count == 0:
+        return 1
+    return syllable_count
 
 
 def get_syllables(word):

@@ -26305,7 +26305,6 @@ outyell=out·yell
 oubliette=ou·bli·ette
 ouzel=ou·zel
 ouzo=ou·zo
-over=over
 oven=ov·en
 ovenbird=ov·en·bird
 oviduct=ov·i·duct
