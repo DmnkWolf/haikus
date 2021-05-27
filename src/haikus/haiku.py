@@ -1,8 +1,8 @@
 """
 Module to handle haikus
 """
-from .syllables import get_syllables
 import re
+from .syllables import get_syllables
 
 
 CLEANING_PATTERN = re.compile(r'[^\w]')
