@@ -18,7 +18,7 @@ flake8:
   stage: Static Analysis
   script:
     - pip install -U flake8
-    - flake8 ./
+    - flake8 ./src/haikus
 
 pytest:
   stage: tests
