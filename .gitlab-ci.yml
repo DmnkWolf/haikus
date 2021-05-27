@@ -1,5 +1,9 @@
 image: python:3.9
 
+default:
+  tags:
+    - docker
+
 stages:
   - Static Analysis
   - tests
