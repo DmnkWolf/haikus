@@ -15,20 +15,21 @@ def _add_from_testfile(file_name, syllable_count, complete_dict):
 
 
 def _load_data():
-    complete_dict = _load_dict()
-    complete_dict = _add_from_testfile('1-syllable-words.txt', 1, complete_dict)
-    complete_dict = _add_from_testfile('2-syllable-words.txt', 2, complete_dict)
-    complete_dict = _add_from_testfile('3-syllable-words.txt', 3, complete_dict)
-    complete_dict = _add_from_testfile('4-syllable-words.txt', 4, complete_dict)
-    complete_dict = _add_from_testfile('5-syllable-words.txt', 5, complete_dict)
-    complete_dict = _add_from_testfile('6-syllable-words.txt', 6, complete_dict)
-    complete_dict = _add_from_testfile('7-syllable-words.txt', 7, complete_dict)
-    return complete_dict
+    compl_dict = _load_dict()
+    compl_dict = _add_from_testfile('1-syllable-words.txt', 1, compl_dict)
+    compl_dict = _add_from_testfile('2-syllable-words.txt', 2, compl_dict)
+    compl_dict = _add_from_testfile('3-syllable-words.txt', 3, compl_dict)
+    compl_dict = _add_from_testfile('4-syllable-words.txt', 4, compl_dict)
+    compl_dict = _add_from_testfile('5-syllable-words.txt', 5, compl_dict)
+    compl_dict = _add_from_testfile('6-syllable-words.txt', 6, compl_dict)
+    compl_dict = _add_from_testfile('7-syllable-words.txt', 7, compl_dict)
+    return compl_dict
 
 
 def _load_dict():
     result = {}
-    with open(str(DATA_PATH / Path('syllables.txt')), encoding='utf-8') as syllable_file:
+    syl_path = str(DATA_PATH / Path('syllables.txt'))
+    with open(syl_path, encoding='utf-8') as syllable_file:
         for entry in syllable_file.readlines():
             word, syllables = entry.split('=')
             if not word in result:
