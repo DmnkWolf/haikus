@@ -11,21 +11,18 @@ stages:
 pylint:
   stage: Static Analysis
   script:
-    - pip install -r requirements.txt
     - pip install -U pylint
     - pylint src/haikus
     
 flake8:
   stage: Static Analysis
   script:
-    - pip install -r requirements.txt
     - pip install -U flake8
     - flake8 ./
 
 pytest:
   stage: tests
   script:
-    - pip install -r requirements.txt
     - pip install -U pytest
     - pytest --junitxml=report.xml tests
   artifacts:
