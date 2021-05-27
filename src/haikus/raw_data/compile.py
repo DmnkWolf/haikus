@@ -9,7 +9,7 @@ def _add_from_testfile(file_name, syllable_count, complete_dict):
     with open(str(DATA_PATH / Path(file_name)), encoding='utf-8') as test_file:
         for word in test_file.readlines():
             word = word.replace("\n", "")
-            if not word in complete_dict:
+            if word not in complete_dict:
                 complete_dict[word] = syllable_count
     return complete_dict
 
@@ -32,7 +32,7 @@ def _load_dict():
     with open(syl_path, encoding='utf-8') as syllable_file:
         for entry in syllable_file.readlines():
             word, syllables = entry.split('=')
-            if not word in result:
+            if word not in result:
                 result[word] = syllables.count('·') + 1
     return result
 
